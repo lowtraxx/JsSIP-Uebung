@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register SoftPhone</title>
+    <link rel="stylesheet" href="phone.css">
+    <script defer src="jssip.js"></script>
+    <script defer src="phone.js"></script>
+    <script defer src="helper.js"></script>
+</head>
+
+<body>
+    <div id="register-holder">
+        <h1 id="register-header">Register SoftPhone</h1>
+        <form id="register-form">
+            <input type="text" name="registrar" id="registrar-field" class="register-form-field"
+                placeholder="127.0.0.1">
+            <input type="text" name="username" id="username-field" class="register-form-field" placeholder="Username">
+            <input type="password" name="password" id="password-field" class="register-form-field"
+                placeholder="Password">
+            <div class="register-form-checkbox">
+                <input type="checkbox" name="is-secure" id="is-secure-checkbox">
+                <label for="is-secure-checkbox">secure (wss)</label>
+            </div>
+            <input type="submit" value="Register" id="register-form-submit" class="button">
+        </form>
+    </div>
+
+    <div id="dialer">
+        <div id="dialer-draggable-header"></div>
+        <div id="number-controls">
+            <input type="text" name="phonenumber" id="phonenumber-field" class="phonenumber-form-field">
+            <input type="submit" value="⇤" data-value="⇤" id="backspace" class="dialpad-char">
+        </div>
+        <div id="dialpad">
+            <div class="dialpad-char" data-value="1" unselectable="on">1</div>
+            <div class="dialpad-char" data-value="2" unselectable="on">2</div>
+            <div class="dialpad-char" data-value="3" unselectable="on">3</div>
+            <div class="dialpad-char" data-value="4" unselectable="on">4</div>
+            <div class="dialpad-char" data-value="5" unselectable="on">5</div>
+            <div class="dialpad-char" data-value="6" unselectable="on">6</div>
+            <div class="dialpad-char" data-value="7" unselectable="on">7</div>
+            <div class="dialpad-char" data-value="8" unselectable="on">8</div>
+            <div class="dialpad-char" data-value="9" unselectable="on">9</div>
+            <div class="dialpad-char" data-value="*" unselectable="on">*</div>
+            <div class="dialpad-char" data-value="0" unselectable="on">0</div>
+            <div class="dialpad-char" data-value="#" unselectable="on">#</div>
+        </div>
+        <div id="call-controls">
+            <input type="submit" value="Dial" id="dial" class="button" disabled>
+            <input type="submit" value="Hangup" id="hangup" class="button" disabled>
+        </div>
+    </div>
+
+    <main id="main-holder">
+        <form id="chat">
+            <h2>Chat</h2>
+            <textarea readonly id="chat-history" rows="15"></textarea>
+            <input type="text" id="chat-recipient" class="register-form-field" placeholder="Recipient">
+            <input type="text" id="chat-message" class="register-form-field" placeholder="Message">
+            <input type="submit" id="send-chat-message" value="Send" class="button">
+        </form>
+        <div id="incoming-call" hidden>
+            <h2 id="incoming-call-text"></h2>
+            <div id="incoming-call-controls">
+                <input type="submit" value="Accept" id="accept" class="button">
+                <input type="submit" value="Reject" id="reject" class="button">
+            </div>
+        </div>
+        <div id="established-call" hidden>
+            <h2 id="established-call-text"></h2>
+            <div id="established-call-controls">
+                <input type="submit" value="Hold" id="hold" class="button">
+                <input type="submit" value="Mute" id="mute" class="button">
+                <input type="submit" value="Transfer" id="transfer" class="button">
+            </div>
+        </div>
+        <input type="submit" value="Unregister" id="unregister-submit" class="button">
+    </main>
+</body>
+
+</html>
